@@ -1,0 +1,44 @@
+.myButton {
+    line-height: 24px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    font-weight: 600;
+    font-family: "Exo 2";
+    border-radius: 10px;
+    width: 199px;
+    height: 56px;
+}
+
+.primary {
+    background-color: #7B61FF;
+    color: white;
+    border: none;
+}
+
+.primary:hover {
+    background-color: #917CFF;
+    cursor: pointer;
+}
+
+.primary:disabled {
+    background-color: #80858B;
+    color: #AFB2B6;
+    cursor: default;
+}
+
+.secondary {
+    background-color: #323537;
+    color: white;
+    border: none;
+}
+
+.secondary:hover {
+    color: #AFB2B6;
+    cursor: pointer;
+}
+
+.secondary:disabled {
+    background-color: #80858B;
+    color: #AFB2B6;
+    cursor: default;
+}
