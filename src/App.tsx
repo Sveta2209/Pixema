@@ -1,10 +1,10 @@
 import './App.css';
-import Button from "./components/Button/Button";
+import Input from "./components/Input/Input";
 
 export default function App() {
   return (
     <>
-    <Button typeButton="myButton secondary" isDisabled={false}>Primary</Button>
+    <Input content="Text" helpText="Title" labelId="Text" labelText="Text" isDisabled={true}></Input>
     </>
   );
 }
