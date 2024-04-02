@@ -33,8 +33,8 @@
     line-height: 20px;
     color: white;
     height: 60%;
-    padding-left: 20px;
-    border: none;
+    padding-left: 24px;
+    border: 2px solid #323537;
     border-radius: 10px;
     background-color: #323537;
 }
@@ -43,7 +43,7 @@
     font-family: "Exo 2";
     font-weight: 400;
     font-size: 16px;
-    line-height: 20px;
+    line-height: 24px;
     color: #777c82;
     height: 60%;
     padding-left: 20px;
@@ -70,12 +70,12 @@
 
 .input-content-dark-theme:focus {
     outline: none;
-    border: 3px solid #7B61FF;
+    border: 2px solid #7B61FF;
 }
 
 .input-content-light-theme:focus {
     outline: none;
-    border: 3px solid #8e79f5;
+    border: 2px solid #8e79f5;
 }
 
 .input-content-dark-theme:disabled::placeholder {
@@ -83,15 +83,17 @@
 } 
 
 .input-content-light-theme:disabled::placeholder {
-    color: #bbbfc2;
+    color: #565858;
 } 
 
 .input-content-dark-theme:disabled {
     background-color: #80858B;
+    border: 2px solid #80858B;
 } 
 
 .input-content-light-theme:disabled {
-    background-color: #80858B;
+    background-color: #bec7d1;
+    border: 2px solid #bec7d1;
 } 
 
 .error-text {
