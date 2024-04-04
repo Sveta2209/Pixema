@@ -42,3 +42,9 @@
     color: #AFB2B6;
     cursor: default;
 }
+
+.large {
+    width: 95%;
+    margin-left: 10px;
+    margin-top: 20px;
+}

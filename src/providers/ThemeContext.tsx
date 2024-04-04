@@ -9,7 +9,7 @@ export const myContext = createContext <CotextType> (["", () => {}]);
 
 export default function ThemeContext ({children}: PropsWithChildren<{}>) {
     
-    const [colorTheme, setColorTheme] = useState ("dark-theme")
+    const [colorTheme, setColorTheme] = useState ("light-theme")
 
     return (
         <myContext.Provider value={[colorTheme, setColorTheme]}>
