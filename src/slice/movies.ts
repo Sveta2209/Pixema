@@ -1,13 +1,13 @@
 import { createSlice, current, createAsyncThunk } from '@reduxjs/toolkit';
-import { Movie } from "../types/types";
+import { MovieResponse, MoviesParams, MoviesState} from "../types/types";
 
 const movieKey = "113df6aa";
 
-export const fetchMovies = createAsyncThunk(
+export const fetchMovies = createAsyncThunk <MovieResponse, MoviesParams> (
     'movies/fetchMovies',
-    async function (title:string, {rejectWithValue}) {
+    async function ({filmTitle, page}, {rejectWithValue}) {
         try {
-            const responce = await fetch(`https://www.omdbapi.com/?apikey=${movieKey}&s=${title}`);
+            const responce = await fetch(`https://www.omdbapi.com/?apikey=${movieKey}&s=${filmTitle}&page=${page}`);
             if (!responce.ok) {
                 throw new Error("Что-то пошло не так")
             }
@@ -20,19 +20,16 @@ export const fetchMovies = createAsyncThunk(
     }
 )
 
+const initialState: MoviesState = {
+    films: [],
+    status: null,
+    error: null
+}
+
 const moviesSlice = createSlice({
     name: 'movies',
-    initialState: {
-        films: [],
-        status: null,
-        error: null
-    },
-    reducers: {
-    addToFavoriteRedux(state: any, {payload}: {payload: any}) {
-        state.films.push(payload);
-        console.log(current(state.films))
-        },
-    },
+    initialState,
+    reducers: {},
     extraReducers: (builder) => {
         return builder.addCase(fetchMovies.pending, (state: any) => {
             state.status = "loading";
@@ -41,7 +38,8 @@ const moviesSlice = createSlice({
         builder.addCase(fetchMovies.fulfilled, (state: any, {payload}: {payload: any}) => {
             state.status = "resolved";
             state.error = null;
-            state.films = payload.results;
+            state.films.push(...payload.search);
+            console.log (state.films)
         }),
         builder.addCase(fetchMovies.rejected, isError)
     }
@@ -52,7 +50,5 @@ const isError = (state: any, {payload}: {payload: any}) => {
     state.error = payload;
 };
 
-
 const {actions, reducer} = moviesSlice;
-export const {addToFavoriteRedux} = actions;
 export default reducer;

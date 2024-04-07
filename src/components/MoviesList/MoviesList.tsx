@@ -1,41 +1,53 @@
 import './MoviesList.css';
 import Card from '../../components/Card/Card';
-import {Movie} from "../../types/types";
+import Spinner from '../Spinner/Spinner';
+import {Movie, MovieResponse, MoviesParams, MoviesState} from "../../types/types";
 import { useDispatch, useSelector} from "react-redux";
 import { fetchMovies } from "../../slice/movies";
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
+import { films } from '../../data';
+import NoPhoto from "../../assets/image-not-found.png";
+import Button from '../Button/Button';
 
 export default function MoviesList() {
 
     const dispatch = useDispatch <any>();
-    const films = useSelector((state:any) => state.movies.films);
+    const [page, setPage] = useState<number>(1);
+    const handlePage = () => setPage((prevPage) => ++prevPage);
 
-    useEffect(() => {
-        if (typeof title === "string") {
-            dispatch(fetchMovies(title))
-        }
-    }, [dispatch])
+    const films = useSelector ((state:any) => state.movies.films);
 
     const moviesWords = [
-        "Pirates",
+        "pirates",
         "red",
         "fast",
         "man",
         "life",
         "car",
-        "solider",
+        "dark",
         "train",
     ];
-      const title = moviesWords[Math.floor(Math.random() * moviesWords.length)];
+    const filmTitle = moviesWords[Math.floor(Math.random() * moviesWords.length)];
 
-    console.log(title)
-    console.log(films)
+    useEffect(() => {
+        dispatch(fetchMovies({ filmTitle, page }))
+    },[dispatch, page])
 
-        return (
-        <div className="page-layout">
-            {films.map((film:Movie) => {
-                <Card key={film.imdbID} film={films}/>
-            })}
-        </div>
+    return (
+    <div className="page-layout">
+        {films.status === "loading" ? <Spinner></Spinner> : null}
+        {films.length === 0 ? null : {films.map((film:Movie) =>
+            <Card key={film.imdbID} source={film.Poster === "N/A" || film.Poster === "" ? `${NoPhoto}` : film.Poster} cardTitle={film.Title} cardGenre={film.Genre}></Card>)}}
+        {films.length > 10 && <Button clickFunction={handlePage} isDisabled={false} typeButton="secondary">Show more</Button>}
+    </div>
     );
+
+    // return (
+    //     <div className="page-layout">
+    //         {films.map(film =>
+    //             <Card key={film.id} source={film.image} cardTitle={film.title} cardGenre={film.date}></Card>
+    //         )}
+    //     </div>
+    // );
+
 }

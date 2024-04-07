@@ -39,3 +39,20 @@ export interface MovieDetails {
     Website: string;
     Response: string;
 }
+
+export interface MovieResponse {
+    search: Movie[];
+    response: string;
+    totalResults: string;
+}
+
+export interface MoviesParams {
+    filmTitle: string;
+    page: number;
+}
+
+export interface MoviesState {
+    films: Movie[];
+    status: string | null;
+    error: string | null;
+}
