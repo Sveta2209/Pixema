@@ -38,8 +38,8 @@ const moviesSlice = createSlice({
         builder.addCase(fetchMovies.fulfilled, (state: any, {payload}: {payload: any}) => {
             state.status = "resolved";
             state.error = null;
-            state.films.push(...payload.search);
-            console.log (state.films)
+            console.log (payload)
+            state.films.push(...payload.Search);
         }),
         builder.addCase(fetchMovies.rejected, isError)
     }

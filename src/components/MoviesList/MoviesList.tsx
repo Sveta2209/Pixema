@@ -1,6 +1,7 @@
 import './MoviesList.css';
 import Card from '../../components/Card/Card';
 import Spinner from '../Spinner/Spinner';
+import SpinnerImage from "../../assets/Spinner.png"
 import {Movie, MovieResponse, MoviesParams, MoviesState} from "../../types/types";
 import { useDispatch, useSelector} from "react-redux";
 import { fetchMovies } from "../../slice/movies";
@@ -18,14 +19,15 @@ export default function MoviesList() {
     const films = useSelector ((state:any) => state.movies.films);
 
     const moviesWords = [
-        "pirates",
-        "red",
-        "fast",
         "man",
-        "life",
-        "car",
+        "wedding",
+        "year",
+        "love",
+        "night",
         "dark",
-        "train",
+        "boy",
+        "house",
+        "life"
     ];
     const filmTitle = moviesWords[Math.floor(Math.random() * moviesWords.length)];
 
@@ -34,20 +36,16 @@ export default function MoviesList() {
     },[dispatch, page])
 
     return (
+        <>
     <div className="page-layout">
         {films.status === "loading" ? <Spinner></Spinner> : null}
-        {films.length === 0 ? null : {films.map((film:Movie) =>
-            <Card key={film.imdbID} source={film.Poster === "N/A" || film.Poster === "" ? `${NoPhoto}` : film.Poster} cardTitle={film.Title} cardGenre={film.Genre}></Card>)}}
-        {films.length > 10 && <Button clickFunction={handlePage} isDisabled={false} typeButton="secondary">Show more</Button>}
+        {films.length === 0 ? null : films.map((film:Movie) =>
+            <Card key={film.imdbID} source={film.Poster === "N/A" || film.Poster === "" ? `${NoPhoto}` : film.Poster} cardTitle={film.Title} cardGenre={film.Genre}></Card>)}
     </div>
+    {films.length > 10 && 
+        <div className="button-container">
+            <Button clickFunction={handlePage} isDisabled={false} typeButton="myButton secondary show-more">Show more</Button>
+        </div>}
+    </>
     );
-
-    // return (
-    //     <div className="page-layout">
-    //         {films.map(film =>
-    //             <Card key={film.id} source={film.image} cardTitle={film.title} cardGenre={film.date}></Card>
-    //         )}
-    //     </div>
-    // );
-
 }
