@@ -24,7 +24,7 @@ import {Movie} from "../../types/types"
 //     );
 // }
 
-export default function Card({source, cardTitle,cardGenre}: {source:string, cardTitle:string,cardGenre:string}) {
+export default function Card({source, cardTitle,cardYear}: {source:string, cardTitle:string,cardYear:string}) {
 
     const [colorTheme] = useContext(myContext);
 
@@ -33,7 +33,7 @@ export default function Card({source, cardTitle,cardGenre}: {source:string, card
         <div className="card-container">
             <img src={source} alt="Poster" className="poster"></img>
             <h3 className={`poster-title-${colorTheme}`}>{cardTitle}</h3>
-            <p className="poster-details">{cardGenre}</p>
+            <p className="poster-details">{cardYear}</p>
         </div>
         </>
     );

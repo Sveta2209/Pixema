@@ -40,9 +40,9 @@ export default function MoviesList() {
     <div className="page-layout">
         {films.status === "loading" ? <Spinner></Spinner> : null}
         {films.length === 0 ? null : films.map((film:Movie) =>
-            <Card key={film.imdbID} source={film.Poster === "N/A" || film.Poster === "" ? `${NoPhoto}` : film.Poster} cardTitle={film.Title} cardGenre={film.Genre}></Card>)}
+            <Card key={film.imdbID} source={film.Poster === "N/A" || film.Poster === "" ? `${NoPhoto}` : film.Poster} cardTitle={film.Title} cardYear={film.Year}></Card>)}
     </div>
-    {films.length > 10 && 
+    {films.length > 9 && 
         <div className="button-container">
             <Button clickFunction={handlePage} isDisabled={false} typeButton="myButton secondary show-more">Show more</Button>
         </div>}
