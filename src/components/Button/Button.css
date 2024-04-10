@@ -53,4 +53,25 @@
     height: 60px;
     border-radius: 40px;
     width: 170px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+
+.favorite {
+    border-radius: 10px 0px 0px 10px;
+    width: 130px;
+}
+
+.favorite:hover {
+    background-color: #7B61FF;
+}
+
+
+.favorite-two {
+    border-radius: 0px 10px 10px 0px;
+    width: 130px;
+}
+
+.favorite-two:hover {
+    background-color: #7B61FF;
 }

@@ -1,12 +1,10 @@
 import './MoviesList.css';
 import Card from '../../components/Card/Card';
 import Spinner from '../Spinner/Spinner';
-import SpinnerImage from "../../assets/Spinner.png"
-import {Movie, MovieResponse, MoviesParams, MoviesState} from "../../types/types";
+import {Movie} from "../../types/types";
 import { useDispatch, useSelector} from "react-redux";
 import { fetchMovies } from "../../slice/movies";
 import {useEffect, useState} from "react";
-import { films } from '../../data';
 import NoPhoto from "../../assets/image-not-found.png";
 import Button from '../Button/Button';
 
@@ -40,7 +38,7 @@ export default function MoviesList() {
     <div className="page-layout">
         {films.status === "loading" ? <Spinner></Spinner> : null}
         {films.length === 0 ? null : films.map((film:Movie) =>
-            <Card key={film.imdbID} source={film.Poster === "N/A" || film.Poster === "" ? `${NoPhoto}` : film.Poster} cardTitle={film.Title} cardYear={film.Year}></Card>)}
+            <Card key={film.imdbID} source={film.Poster === "N/A" || film.Poster === "" ? `${NoPhoto}` : film.Poster} cardTitle={film.Title} cardYear={film.Year} id={film.imdbID} ></Card>)}
     </div>
     {films.length > 9 && 
         <div className="button-container">

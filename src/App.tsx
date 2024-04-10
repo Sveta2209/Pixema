@@ -8,6 +8,7 @@ import SignInPage from './pages/SignIn/SignIn';
 import SignUpPage from './pages/SignUp/SignUp';
 import Card from './components/Card/Card';
 import MainPage from './pages/MainPage/MainPage';
+import OneMovie from './components/OneMovie/OneMovie';
 // import SearchInput from './components/SearchInput/SearchInput';
 // import Input from "./components/Input/Input";
 
@@ -24,6 +25,7 @@ export default function App() {
     {/* <SearchInput content="Text" helpText="Search" isDisabled={false}></SearchInput> */}
     {/* <Card></Card> */}
     <MainPage></MainPage>
+    <OneMovie></OneMovie>
     </ThemeContext>
     </>
   );
