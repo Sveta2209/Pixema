@@ -55,4 +55,11 @@ export interface MoviesState {
     films: Movie[];
     status: string | null;
     error: string | null;
+    // selectedFilm: MovieDetails | null;
+}
+
+export interface FilmState {
+    selectedFilm: MovieDetails | null;
+    status: string | null;
+    error: string | null;
 }

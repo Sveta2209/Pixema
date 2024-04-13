@@ -15,3 +15,13 @@
     animation: l3 1s infinite linear;
 }
     @keyframes l3 {to{transform: rotate(1turn)}}
+
+.main-container-light-theme {
+    width: 100%;
+    background-color: white;
+}
+
+.main-container-dark-theme {
+    width: 100%;
+    background-color: black;
+}

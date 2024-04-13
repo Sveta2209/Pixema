@@ -7,6 +7,7 @@ import { fetchMovies } from "../../slice/movies";
 import {useEffect, useState} from "react";
 import NoPhoto from "../../assets/image-not-found.png";
 import Button from '../Button/Button';
+import { Link } from 'react-router-dom';
 
 export default function MoviesList() {
 
@@ -38,7 +39,7 @@ export default function MoviesList() {
     <div className="page-layout">
         {films.status === "loading" ? <Spinner></Spinner> : null}
         {films.length === 0 ? null : films.map((film:Movie) =>
-            <Card key={film.imdbID} source={film.Poster === "N/A" || film.Poster === "" ? `${NoPhoto}` : film.Poster} cardTitle={film.Title} cardYear={film.Year} id={film.imdbID} ></Card>)}
+            <Link className="link-decoration card-container" to={`/movie/${film.imdbID}`}><Card key={film.imdbID} source={film.Poster === "N/A" || film.Poster === "" ? `${NoPhoto}` : film.Poster} cardTitle={film.Title} cardYear={film.Year} imdbID={film.imdbID} ></Card> </Link>)}
     </div>
     {films.length > 9 && 
         <div className="button-container">

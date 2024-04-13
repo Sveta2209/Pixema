@@ -3,7 +3,7 @@ import {useContext} from "react";
 import {myContext} from "../../providers/ThemeContext";
 
 
-export default function Card({source, cardTitle, cardYear, id}: {source:string, cardTitle:string,cardYear:string, id:string}) {
+export default function Card({source, cardTitle, cardYear, imdbID}: {source:string, cardTitle:string,cardYear:string, imdbID:string}) {
 
     const [colorTheme] = useContext(myContext);
 

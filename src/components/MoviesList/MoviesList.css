@@ -18,3 +18,8 @@
     text-align: center;
     background-color: transparent;
 }
+
+.link-decoration {
+    text-decoration: none;
+    height: auto;
+}
