@@ -1,0 +1,23 @@
+.icon-container {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background-color: #242426;
+    top: 10px;
+    right: 10px;
+    border-radius: 10px;
+    box-shadow: 1px 2px 10px 1px rgba(0, 0, 0, 0.3);
+}
+
+.delete-icon {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    top: 6px;
+    right: 6px;
+}
+
+.link-decoration {
+    text-decoration: none;
+    height: auto;
+}

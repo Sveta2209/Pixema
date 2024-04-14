@@ -4,6 +4,7 @@
     display: flex;
     flex-direction: column;
     grid-row-end: span 24;
+    position: relative;
 }
 
 .poster {

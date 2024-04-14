@@ -59,9 +59,14 @@
     z-index: 100;
 }
 
-.additional-menu-point-dark-theme {
+.additional-menu-point {
     width: 100%;
     height: 16%;
+}
+
+.additional-menu-point-dark-theme {
+    width: 100%;
+    /* height: 16%; */
     border-bottom: 1px solid #80858B;
     display: flex;
     align-items: center;
@@ -69,7 +74,23 @@
 
 .additional-menu-point-light-theme {
     width: 100%;
-    height: 16%;
+    /* height: 16%; */
+    border-bottom: 1px solid #80858B;
+    display: flex;
+    align-items: center;
+}
+
+.additional-menu-point-favorite-dark-theme {
+    width: 100%;
+    height: 100%;
+    border-bottom: 1px solid #80858B;
+    display: flex;
+    align-items: center;
+}
+
+.additional-menu-point-favorite-light-theme {
+    width: 100%;
+    height: 100%;
     border-bottom: 1px solid #80858B;
     display: flex;
     align-items: center;

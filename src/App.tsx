@@ -5,6 +5,7 @@ import SignUpPage from './pages/SignUp/SignUp';
 import MainPage from './pages/MainPage/MainPage';
 import MoviePage from './pages/MoviePage/MoviePage';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import FavoritesPage from './pages/FavoritesPage/FavoritesPage';
 // import SearchInput from './components/SearchInput/SearchInput';
 // import Input from "./components/Input/Input";
 
@@ -18,6 +19,7 @@ export default function App() {
         <Route path="/sign-up" element={<SignUpPage/>}></Route>
         <Route path="/sign-in" element={<SignInPage/>}></Route>
         <Route path="/movie/:imdbID" element={<MoviePage/>}></Route>
+        <Route path="/favorites" element={<FavoritesPage/>}></Route>
       </Routes>
     </ThemeContext>
     </BrowserRouter>

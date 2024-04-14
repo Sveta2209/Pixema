@@ -15,6 +15,7 @@ import Settings from "../../assets/Settings.png";
 import Filter from "../../assets/Filter.png";
 import Moon from "../../assets/Moon.png";
 import Sun from "../../assets/Sun.png";
+import { Link } from 'react-router-dom';
 
 export default function Header() {
 
@@ -34,18 +35,18 @@ export default function Header() {
         <div className="header-container">
             <img src={isVisibleMenu ? Cancel : Menu} alt="Menu" className="header-menu" onClick={() => {setIsVisibleMenu(!isVisibleMenu)}}></img>
             <div className={isVisibleMenu ? `additional-menu-${colorTheme}` : "display-none"}>
-                <div className={`additional-menu-point-${colorTheme}`}>
+                <Link to="/" className="link-decoration additional-menu-point"><div className={`additional-menu-point-${colorTheme}`}>
                     <img src={Home} alt="Home-icon" className="additional-menu-point-icon"></img>
                     <div className="additional-menu-point-name">Home</div>
-                </div>
+                </div></Link>
                 <div className={`additional-menu-point-${colorTheme}`}>
                     <img src={Trend} alt="Trend-icon" className="additional-menu-point-icon"></img>
                     <div className="additional-menu-point-name">Trends</div>
                 </div>
-                <div className={`additional-menu-point-${colorTheme}`}>
+                <Link to="/favorites" className="link-decoration additional-menu-point"><div className={`additional-menu-point-favorite-${colorTheme}`}>
                     <img src={Favorite} alt="Favorite-icon" className="additional-menu-point-icon"></img>
                     <div className="additional-menu-point-name">Favorites</div>
-                </div>
+                </div></Link>
                 <div className={`additional-menu-point-${colorTheme}`}>
                     <img src={Settings} alt="Favorite-icon" className="additional-menu-point-icon"></img>
                     <div className="additional-menu-point-name">Settings</div>

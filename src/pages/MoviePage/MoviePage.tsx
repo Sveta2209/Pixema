@@ -5,13 +5,16 @@ import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import Button from "../../components/Button/Button";
 import Favorite from "../../assets/Favorite.png";
-import Share from "../../assets/Share.png";
+import Delete from "../../assets/Delete.png";
 import { useDispatch, useSelector} from "react-redux";
 import { fetchOneMovie } from "../../slice/selectedFilm";
 import {useEffect} from "react";
 import {useParams } from "react-router-dom";
 import Spinner from "../../components/Spinner/Spinner";
 import NoPhoto from "../../assets/image-not-found.png";
+import { Movie } from "../../types/types";
+import {addToFavorites, removeFavorites} from "../../slice/favorite";
+
 
 
 export default function MoviePage() {
@@ -27,7 +30,14 @@ export default function MoviePage() {
         }
     }, [dispatch, imdbID])
 
-    console.log(movie)
+    function addFavorite (item: Movie) {
+        dispatch(addToFavorites(item))
+    }
+
+    function deleteFavorite (item: Movie) {
+        dispatch(removeFavorites(item))
+    }
+
 
         return (
         <>
@@ -39,10 +49,10 @@ export default function MoviePage() {
                     <><div className="card-box">
                         <img src={movie.selectedFilm.Poster === "N/A" || movie.selectedFilm.Poster === "" ? `${NoPhoto}` : movie.selectedFilm.Poster} alt="Poster" className="one-movie-poster"></img>
                         <div className="button-container">
-                            <Button  isDisabled={false} typeButton="myButton secondary favorite"></Button>
+                            <Button  isDisabled={false} typeButton="myButton secondary favorite" clickFunction={() => addFavorite(movie.selectedFilm)} ></Button>
                             <img src={Favorite} alt="Favorite-icon" className="favorite-icon"></img>
-                            <Button  isDisabled={false} typeButton="myButton secondary favorite-two"></Button>
-                            <img src={Share} alt="Share-icon" className="share-icon"></img>
+                            <Button  isDisabled={false} typeButton="myButton secondary favorite-two" clickFunction={() => deleteFavorite(movie.selectedFilm)}></Button>
+                            <img src={Delete} alt="DeleteFavorite-icon" className="deleteFavorite-icon"></img>
                         </div>
                     </div>
                     <div className="details-box">
