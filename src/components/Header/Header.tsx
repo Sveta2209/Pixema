@@ -39,10 +39,10 @@ export default function Header() {
                     <img src={Home} alt="Home-icon" className="additional-menu-point-icon"></img>
                     <div className="additional-menu-point-name">Home</div>
                 </div></Link>
-                <div className={`additional-menu-point-${colorTheme}`}>
+                <Link to="/trends" className="link-decoration additional-menu-point"><div className={`additional-menu-point-${colorTheme}`}>
                     <img src={Trend} alt="Trend-icon" className="additional-menu-point-icon"></img>
                     <div className="additional-menu-point-name">Trends</div>
-                </div>
+                </div></Link>
                 <Link to="/favorites" className="link-decoration additional-menu-point"><div className={`additional-menu-point-favorite-${colorTheme}`}>
                     <img src={Favorite} alt="Favorite-icon" className="additional-menu-point-icon"></img>
                     <div className="additional-menu-point-name">Favorites</div>
