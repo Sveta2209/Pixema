@@ -4,7 +4,7 @@ import Cancel from "../../assets/Cancel.png";
 import LogoDark from "../../assets/Pixema-dark.png";
 import LogoLight from "../../assets/Pixema-light.png";
 import SearchInput from "../SearchInput/SearchInput";
-import {useState, useContext} from "react";
+import {useState, useContext, ChangeEvent, FormEvent, useEffect} from "react";
 import {myContext} from "../../providers/ThemeContext";
 import UserSignIn from "../UserSignIn/UserSignIn";
 import UserAuth from "../UserAuth/UserAuth";
@@ -15,12 +15,15 @@ import Settings from "../../assets/Settings.png";
 import Filter from "../../assets/Filter.png";
 import Moon from "../../assets/Moon.png";
 import Sun from "../../assets/Sun.png";
-import { Link } from 'react-router-dom';
+import { useNavigate, generatePath, Link } from "react-router-dom";
+import { useDebounce } from "../../useDebounce";
 
 export default function Header() {
 
     const [isVisibleMenu, setIsVisibleMenu] = useState(false);
     const [colorTheme, setColorTheme] = useContext(myContext);
+    const [search, setSearch] = useState<string>("");
+    const navigate = useNavigate();
 
     function changeColorDark () {
         setColorTheme ("dark-theme");
@@ -29,6 +32,19 @@ export default function Header() {
     function changeColorLight () {
         setColorTheme ("light-theme");
     }
+
+    const debaunceSearch = useDebounce(search);
+
+    const handleSearch = (event: FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+    };
+    const handleSearchValue = (event: ChangeEvent<HTMLInputElement>) => {
+        setSearch(event.target.value);
+    };
+
+    useEffect(() => {
+        debaunceSearch && navigate(generatePath("/search/:title", { title: debaunceSearch }));
+    }, [debaunceSearch]);
 
     return (
     <header className={`header-${colorTheme}`}>
@@ -57,7 +73,7 @@ export default function Header() {
                 </div>
                 <div className="additional-menu-point-theme">
                     <div className="additional-menu-point-theme-box" onClick={changeColorDark}>
-                        <img src={Moon} alt="darktheme-icon" className="theme-icon"></img>
+                        <img src={Moon} alt="darktheme-icon" className="theme-icon moon"></img>
                     </div>
                     <div className="additional-menu-point-theme-box" onClick={changeColorLight}>
                         <img src={Sun} alt="lightheme-icon" className="theme-icon"></img>
@@ -65,7 +81,7 @@ export default function Header() {
                 </div>
             </div>
             <img src={colorTheme === "dark-theme" ? LogoDark : LogoLight} alt="Logo" className="header-logo"></img>
-            <SearchInput content="Text" helpText="Search" isDisabled={false}></SearchInput>
+            <SearchInput content="Text" helpText="Search" isDisabled={false} inputValue={search} setInputValue={handleSearchValue} searchOnSubmit={handleSearch} searchId="search"></SearchInput>
             <UserAuth userName="Artem Lapitsky"></UserAuth>
         </div>
     </header>

@@ -20,7 +20,6 @@ export const fetchMovies = createAsyncThunk <MovieResponse, MoviesParams> (
     }
 )
 
-
 const initialState: MoviesState = {
     films: [],
     status: null,
@@ -32,11 +31,11 @@ const moviesSlice = createSlice({
     initialState,
     reducers: {},
     extraReducers: (builder) => {
-        return builder.addCase(fetchMovies.pending, (state: any) => {
+        return builder.addCase(fetchMovies.pending, (state) => {
             state.status = "loading";
             state.error = null;
         }),
-        builder.addCase(fetchMovies.fulfilled, (state: any, {payload}: {payload: any}) => {
+        builder.addCase(fetchMovies.fulfilled, (state, {payload}) => {
             state.status = "resolved";
             state.error = null;
             state.films.push(...payload.Search);
@@ -45,7 +44,7 @@ const moviesSlice = createSlice({
     }
 });
 
-const isError = (state: any, {payload}: {payload: any}) => {
+const isError = (state:  MoviesState, {payload}: {payload:any}) => {
     state.status = "rejected";
     state.error = payload;
 };

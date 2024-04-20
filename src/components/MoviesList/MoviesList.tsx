@@ -38,9 +38,11 @@ export default function MoviesList() {
         <>
     <div className="page-layout">
         {films.status === "loading" ? <Spinner></Spinner> : null}
-        {films.length === 0 ? null : films.map((film:Movie) =>
-            <Link className="link-decoration card-container" to={`/movie/${film.imdbID}`}><Card key={film.imdbID} source={film.Poster === "N/A" || film.Poster === "" ? `${NoPhoto}` : film.Poster} cardTitle={film.Title} cardYear={film.Year} imdbID={film.imdbID} ></Card> </Link>)}
-    </div>
+        {films.length === 0 ? null : films.map((film:Movie) => (
+            <div className="key-container" key={film.imdbID}>
+                <Link className="link-decoration card-container" to={`/movie/${film.imdbID}`}><Card key={film.imdbID} source={film.Poster === "N/A" || film.Poster === "" ? `${NoPhoto}` : film.Poster} cardTitle={film.Title} cardYear={film.Year} imdbID={film.imdbID} ></Card> </Link>
+            </div>))}
+        </div>
     {films.length > 9 && 
         <div className="button-container">
             <Button clickFunction={handlePage} isDisabled={false} typeButton="myButton secondary show-more">Show more</Button>

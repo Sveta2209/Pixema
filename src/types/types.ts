@@ -42,7 +42,7 @@ export interface MovieDetails {
 }
 
 export interface MovieResponse {
-    search: Movie[];
+    Search: Movie[];
     response: string;
     totalResults: string;
 }

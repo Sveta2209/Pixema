@@ -11,6 +11,7 @@ import Path from "../../assets/Path.png";
 import {fetchTrends} from "../../slice/trendFilms";
 import { Link } from 'react-router-dom';
 import {useEffect} from "react";
+import Spinner from "../../components/Spinner/Spinner";
 
 
 export default function TrendsPage() {
@@ -31,13 +32,16 @@ export default function TrendsPage() {
         <>
             <Header></Header>
             <div className={`main-container-${colorTheme}`}>
+                {trendFilms.status === "loading" ? <Spinner></Spinner> : null}
                 <div className="page-layout">
-                {trendFilms.length > 0 && trendFilms.map((film:Movie) =>
+                {trendFilms.length > 0 && trendFilms.map((film:Movie) => (
+                    <div className="key-container" key={film.imdbID}>
                     <Link className="link-decoration card-container" to={`/movie/${film.imdbID}`}> <Card key={film.imdbID} source={film.Poster === "N/A" || film.Poster === "" ? `${NoPhoto}` : film.Poster} cardTitle={film.Title} cardYear={film.Year} imdbID={film.imdbID} >
                         <div className="trend-container">
                             <img src={Path} alt="trend-icon" className="trend-icon"></img>
                         </div>
-                    </Card> </Link>)}
+                    </Card> </Link>
+                    </div>))}
                 </div>
             </div>
             <Footer></Footer>

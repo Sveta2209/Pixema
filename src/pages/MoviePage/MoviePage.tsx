@@ -8,7 +8,7 @@ import Favorite from "../../assets/Favorite.png";
 import Delete from "../../assets/Delete.png";
 import { useDispatch, useSelector} from "react-redux";
 import { fetchOneMovie } from "../../slice/selectedFilm";
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
 import {useParams } from "react-router-dom";
 import Spinner from "../../components/Spinner/Spinner";
 import NoPhoto from "../../assets/image-not-found.png";
@@ -38,6 +38,8 @@ export default function MoviePage() {
         dispatch(removeFavorites(item))
     }
 
+    const [isVisibleAnswerAdd, setIsVisibleAnswerAdd] = useState(false);
+    const [isVisibleAnswerDel, setIsVisibleAnswerDel] = useState(false);
 
         return (
         <>
@@ -49,10 +51,18 @@ export default function MoviePage() {
                     <><div className="card-box">
                         <img src={movie.selectedFilm.Poster === "N/A" || movie.selectedFilm.Poster === "" ? `${NoPhoto}` : movie.selectedFilm.Poster} alt="Poster" className="one-movie-poster"></img>
                         <div className="button-container">
-                            <Button  isDisabled={false} typeButton="myButton secondary favorite" clickFunction={() => addFavorite(movie.selectedFilm)} ></Button>
+                            <Button  isDisabled={false} typeButton="myButton secondary favorite" clickFunction={() => {addFavorite(movie.selectedFilm); setIsVisibleAnswerAdd(!isVisibleAnswerAdd)}}></Button>
                             <img src={Favorite} alt="Favorite-icon" className="favorite-icon"></img>
-                            <Button  isDisabled={false} typeButton="myButton secondary favorite-two" clickFunction={() => deleteFavorite(movie.selectedFilm)}></Button>
+                            <div className={isVisibleAnswerAdd ? "display" : "display-none"}>
+                                <p className="message">You add this film to favorites!</p>
+                                <p className={isVisibleAnswerAdd ? "cancel-point" : "display-none"} onClick={() => setIsVisibleAnswerAdd(!isVisibleAnswerAdd)}>X</p>
+                            </div>
+                            <Button  isDisabled={false} typeButton="myButton secondary favorite-two" clickFunction={() => {deleteFavorite(movie.selectedFilm); setIsVisibleAnswerDel(!isVisibleAnswerDel)}}></Button>
                             <img src={Delete} alt="DeleteFavorite-icon" className="deleteFavorite-icon"></img>
+                            <div className={isVisibleAnswerDel ? "display" : "display-none"}>
+                                <p className="message">You delete this film from favorites!</p>
+                                <p className={isVisibleAnswerDel ? "cancel-point" : "display-none"} onClick={() => setIsVisibleAnswerDel(!isVisibleAnswerDel)}>X</p>
+                            </div>
                         </div>
                     </div>
                     <div className="details-box">

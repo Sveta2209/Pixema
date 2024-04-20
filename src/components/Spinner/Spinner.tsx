@@ -2,7 +2,7 @@ import "./Spinner.css";
 import {useContext} from "react";
 import {myContext} from "../../providers/ThemeContext";
 
-function Spinner() {
+export default function Spinner() {
 
     const [colorTheme] = useContext(myContext);
 
@@ -13,4 +13,3 @@ function Spinner() {
     );
 }
 
-export default Spinner;

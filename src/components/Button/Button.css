@@ -70,6 +70,7 @@
 .favorite-two {
     border-radius: 0px 10px 10px 0px;
     width: 130px;
+    border-left: 1px solid #AFB2B6;
 }
 
 .favorite-two:hover {

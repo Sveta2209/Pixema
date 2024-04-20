@@ -1,11 +1,13 @@
 .main-container-light-theme {
     width: 100%;
     background-color: white;
+    min-height: 100vh;
 }
 
 .main-container-dark-theme {
     width: 100%;
     background-color: black;
+    min-height: 100vh;
 }
 
 .one-movie-container {
@@ -220,4 +222,41 @@
     height: auto;
     display: flex;
     justify-content: space-between;
+}
+
+.display-none {
+    display: none;
+}
+
+.display{
+    width: 266px;
+    height: 65px;
+    position: absolute;
+    background-color: #917CFF;
+    box-shadow: 1px 2px 10px 1px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    bottom: 55px;
+    right: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+}
+
+.cancel-point{
+    color: white;
+    font-family: "Exo 2";
+    font-size: 20px;
+    font-weight: 600;
+    width: 15%;
+    margin: 0px 5px 0px 0px;
+    cursor: pointer;
+}
+
+.message{
+    color: white;
+    font-family: "Exo 2";
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0px 5px 0px 5px;
 }

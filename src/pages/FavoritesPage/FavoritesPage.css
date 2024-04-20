@@ -1,3 +1,15 @@
+.main-container-light-theme {
+    width: 100%;
+    background-color: white;
+    min-height: 83.6vh;
+}
+
+.main-container-dark-theme {
+    width: 100%;
+    background-color: black;
+    min-height: 83.6vh;
+}
+
 .icon-container {
     position: absolute;
     width: 40px;
@@ -13,11 +25,41 @@
     position: absolute;
     width: 30px;
     height: 30px;
-    top: 6px;
-    right: 6px;
+    top: 5px;
+    right: 5px;
 }
 
 .link-decoration {
     text-decoration: none;
     height: auto;
+}
+
+.empty-image-box {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.empty-image-title {
+    font-family: "Exo 2";
+    font-weight: 700;
+    font-size: 40px;
+    color:#7B61FF;
+    margin-bottom: 20px;
+}
+
+.empty-image-description {
+    font-family: "Exo 2";
+    font-weight: 600;
+    font-size: 28px;
+    color:#917CFF;
+    margin-top: 0px;
+}
+
+.empty-image {
+    width: 30%;
+    margin-top: 10px;
 }
