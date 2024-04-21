@@ -143,3 +143,35 @@
     width: 30px;
     height: 30px;
 }
+
+@media screen and (max-width: 580px) {
+    .header-light-theme{
+        height: auto;
+    }
+    .header-dark-theme{
+        height: auto;
+    }
+    .header-container{
+        flex-wrap: wrap;
+    }
+}
+
+@media screen and (max-width: 322px) {
+    .header-logo{
+        width: 145px;
+    }
+}
+
+@media screen and (max-width: 293px) {
+    .header-logo{
+        width: 130px;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    .additional-menu-dark-theme{
+        width: 200px;
+    }
+    .additional-menu-light-theme{
+        width: 200px;
+    }
+}

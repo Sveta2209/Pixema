@@ -122,3 +122,53 @@
 .display-none {
     display: none;
 }
+
+@media screen and (max-width: 750px) {
+    .user-details-box-dark-theme{
+        display: none;
+    }
+    .user-details-box-light-theme{
+        display: none;
+    }
+    .navigate-box-dark-theme{
+        margin-left: 5px;
+    }
+    .navigate-box-light-theme{
+        margin-left: 5px;
+    }
+    .user-menu-dark-theme {
+        right: 40px;
+        width: 200px;
+    }
+    .user-menu-light-theme {
+        right: 40px;
+        width: 200px;
+    }
+}
+
+@media screen and (max-width: 580px) {
+    .user-container{
+        width: 85px;
+        padding-top: 25px;
+    }
+    .user-menu-dark-theme{
+        right: 30px;
+        top: 95px;
+    }
+    .user-menu-light-theme{
+        right: 30px;
+        top: 95px;
+    }
+}
+
+@media screen and (max-width: 293px) {
+    .user-container{
+        margin-left: 5px;
+    }
+    .user-menu-dark-theme{
+        width: 150px;
+    }
+    .user-menu-light-theme{
+        width: 150px;
+    }
+}

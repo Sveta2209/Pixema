@@ -63,3 +63,27 @@
     width: 30%;
     margin-top: 10px;
 }
+
+@media screen and (max-width: 500px) {
+    .empty-image-title{
+        font-size: 32px;
+    }
+    .empty-image-description{
+        font-size: 20px;
+    }
+    .empty-image{
+        width: 40%;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .empty-image-title{
+        font-size: 26px;
+    }
+    .empty-image-description{
+        font-size: 14px;
+    }
+    .empty-image{
+        width: 50%;
+    }
+}

@@ -76,3 +76,12 @@
 .favorite-two:hover {
     background-color: #7B61FF;
 }
+
+@media screen and (max-width: 270px) {
+    .favorite{
+        width: 100px;
+    }
+    .favorite-two{
+        width: 100px;
+    }
+}

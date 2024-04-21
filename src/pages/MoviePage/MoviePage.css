@@ -260,3 +260,82 @@
     font-weight: 600;
     margin: 0px 5px 0px 5px;
 }
+
+@media screen and (max-width: 600px) {
+    .one-movie-container{
+        flex-wrap: wrap;
+    }
+    .card-box{
+        margin: 0 auto;
+        width: 235px;
+    }
+    .rating-box{
+        width: 210px;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .film-description-dark-theme{
+        font-size: 14px;
+        line-height: 20px;
+    }
+    .film-description-light-theme{
+        font-size: 14px;
+        line-height: 20px;
+    }
+    .card-title-dark-theme{
+        font-size: 36px;
+    }
+    .card-title-light-theme{
+        font-size: 36px;
+    }
+    .details-title{
+        font-size: 14px;
+        line-height: 18px;
+    }
+    .details-description-light-theme{
+        font-size: 14px;
+        line-height: 18px;
+    }
+    .details-description-dark-theme{
+        font-size: 14px;
+        line-height: 18px;
+    }
+    .details-box{
+        margin-left: 10px;
+    }
+    .display{
+        width: 234px;
+    }
+    .message{
+        font-size: 18px;
+    }
+    .favorite-icon{
+        left: 55px;
+    }
+    .deleteFavorite-icon{
+        right: 55px;
+    }
+}
+
+@media screen and (max-width: 270px) {
+    .card-box{
+        width: 210px;
+    }
+    .favorite-icon{
+        left: 45px;
+    }
+    .deleteFavorite-icon{
+        right: 45px;
+    }
+    .rating-box{
+        width: 170px;
+    }
+    .rating{
+        display: none;
+    }
+    .display{
+        width: 200px;
+        right: 5px;
+    }
+}
