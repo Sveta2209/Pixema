@@ -69,3 +69,10 @@ export interface TrendState {
     status: string | null;
     error: string | null;
 }
+
+export interface AuthForUser {
+    email: string;
+    password: string;
+    confirmPassword?: string;
+    name?: string;
+}

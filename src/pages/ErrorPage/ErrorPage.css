@@ -1,0 +1,31 @@
+.main-container-light-theme {
+    width: 100%;
+    background-color: white;
+    min-height: 83.6vh;
+}
+
+.main-container-dark-theme {
+    width: 100%;
+    background-color: black;
+    min-height: 83.6vh;
+}
+
+.error-light-theme {
+    color: #313037;
+    font-family: "Exo 2";
+    font-size: 28px;
+    font-weight: 400;
+    width: 100%;
+    text-align: center;
+    padding-top: 100px;
+}
+
+.error-dark-theme {
+    color: white;
+    font-family: "Exo 2";
+    font-size: 28px;
+    font-weight: 400;
+    width: 100%;
+    text-align: center;
+    padding-top: 100px;
+}

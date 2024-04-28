@@ -5,6 +5,7 @@ import filmReducer from "../slice/selectedFilm";
 import favoritesReducer from "../slice/favorite";
 import trendsReducer from "../slice/trendFilms";
 import searchReducer from "../slice/search";
+import userReducer from "../slice/user";
 
 const rootReduce = {
     movies: moviesReducer,
@@ -12,6 +13,7 @@ const rootReduce = {
     favorites: favoritesReducer,
     trends: trendsReducer,
     search:searchReducer,
+    user: userReducer,
 }
 
 const store = configureStore({

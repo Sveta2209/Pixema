@@ -5,6 +5,7 @@ import LogoDark from "../../assets/Pixema-dark.png";
 import Title from '../../components/Title/Title';
 import Input from "../../components/Input/Input";
 import Button from "../../components/Button/Button";
+import { Link } from "react-router-dom";
 
 export default function SignInPage() {
 
@@ -15,7 +16,7 @@ export default function SignInPage() {
         return (
         <div className="page-container">
             <div className="page-header">
-                <img src={LogoDark} alt="Logo" className="header-logo"></img>
+            <Link to="/" className="link-decoration"><img src={LogoDark} alt="Logo" className="header-logo"></img></Link>
             </div>
             <div className="page-content">
                 <div className={`signin-box-${colorTheme}`}>
@@ -25,7 +26,7 @@ export default function SignInPage() {
                         <Input setInputValue={e => setInputPassword(e.target.value)} inputValue={inputPassword} content="Password" helpText="Your password" labelId="userPasswordSignIn" labelText="Password" isDisabled={false}></Input>
                         <p className="question-forgotPassword">Forgot password?</p>
                         <Button typeButton="myButton primary large" isDisabled={false}>Sign In</Button>
-                        <p className="question">Don’t have an account? <span className="question-blue">Sign Up</span></p>
+                        <p className="question">Don’t have an account? <Link to="/sign-up" className="link-decoration"><span className="question-blue">Sign Up</span></Link></p>
                     </div>
                 </div>
             </div>

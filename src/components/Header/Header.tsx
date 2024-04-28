@@ -6,8 +6,6 @@ import LogoLight from "../../assets/Pixema-light.png";
 import SearchInput from "../SearchInput/SearchInput";
 import {useState, useContext, ChangeEvent, FormEvent, useEffect} from "react";
 import {myContext} from "../../providers/ThemeContext";
-import UserSignIn from "../UserSignIn/UserSignIn";
-import UserAuth from "../UserAuth/UserAuth";
 import Home from "../../assets/Home.png";
 import Trend from "../../assets/Trend.png";
 import Favorite from "../../assets/Favorite.png";
@@ -17,21 +15,28 @@ import Moon from "../../assets/Moon.png";
 import Sun from "../../assets/Sun.png";
 import { useNavigate, generatePath, Link } from "react-router-dom";
 import { useDebounce } from "../../useDebounce";
+import { useSelector, useDispatch } from "react-redux";
+import { fetchSignUpUser, fetchLogout } from "../../slice/user";
+import ArrowDown from "../../assets/Arrow Down.png";
+import ArrowRight from "../../assets/Arrow Right.png";
+import User from "../../assets/User.png";
 
-export default function Header() {
+export default function Header({userName}: {userName?:string}) {
 
     const [isVisibleMenu, setIsVisibleMenu] = useState(false);
+    const [isVisible, setIsVisible] = useState(false);
     const [colorTheme, setColorTheme] = useContext(myContext);
     const [search, setSearch] = useState<string>("");
     const navigate = useNavigate();
+    const { name, isAuth } = useSelector((state: any) => state.user);
+    const dispatch = useDispatch <any>();
 
     function changeColorDark () {
         setColorTheme ("dark-theme");
-    }
-
+    };
     function changeColorLight () {
         setColorTheme ("light-theme");
-    }
+    };
 
     const debaunceSearch = useDebounce(search);
 
@@ -45,6 +50,10 @@ export default function Header() {
     useEffect(() => {
         debaunceSearch && navigate(generatePath("/search/:title", { title: debaunceSearch }));
     }, [debaunceSearch]);
+
+    const logOut = () => {
+        dispatch(fetchLogout());
+    };
 
     return (
     <header className={`header-${colorTheme}`}>
@@ -80,9 +89,33 @@ export default function Header() {
                     </div>
                 </div>
             </div>
-            <img src={colorTheme === "dark-theme" ? LogoDark : LogoLight} alt="Logo" className="header-logo"></img>
+            <Link to="/" className="link-decoration"><img src={colorTheme === "dark-theme" ? LogoDark : LogoLight} alt="Logo" className="header-logo"></img></Link>
             <SearchInput content="Text" helpText="Search" isDisabled={false} inputValue={search} setInputValue={handleSearchValue} searchOnSubmit={handleSearch} searchId="search"></SearchInput>
-            <UserAuth userName="Artem Lapitsky"></UserAuth>
+            {isAuth ? <><div className="user-container">
+                <div className="color-box">
+                    <img src={User} alt="User-icon" className="user-icon"></img>
+                </div>
+                <div className={`user-details-box-${colorTheme}`}>
+                    <p className={`user-details-${colorTheme}`}>{name}</p>
+                </div>
+                <div className={`navigate-box-${colorTheme}`} onClick={() => {setIsVisible(!isVisible)}}>
+                    <img src={isVisible ? ArrowRight : ArrowDown} alt="arrow-down" className="arrow-icon"></img>
+                </div>
+                <div className={isVisible ? `user-menu-${colorTheme}` : "display-none"}>
+                    <div className={`user-menu-pointOne-${colorTheme}`}>Edit Profile</div>
+                    <div className="user-menu-pointTwo" onClick={logOut}>Log Out</div>
+                </div>
+            </div></> : <><div className="user-container">
+            <div className="color-box">
+                <img src={User} alt="User-icon" className="user-icon"></img>
+            </div>
+            <Link to="/sign-in" className="link-decoration"><div className={`user-details-box-${colorTheme}`}>
+                <p className={`user-details-${colorTheme}`}>Sign In</p>
+            </div></Link>
+            <div className={`navigate-box-${colorTheme}`}>
+                <img src={ArrowRight} alt="arrow-right" className="arrow-icon"></img>
+            </div>
+        </div></>}
         </div>
     </header>
     );

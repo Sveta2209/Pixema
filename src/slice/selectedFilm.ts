@@ -31,7 +31,7 @@ const filmSlice = createSlice({
     initialState,
     reducers: {},
     extraReducers: (builder) => {
-        builder.addCase(fetchOneMovie.pending, (state: any) => {
+        return builder.addCase(fetchOneMovie.pending, (state: any) => {
             state.status = "loading";
             state.error = null;
         }),

@@ -8,6 +8,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import FavoritesPage from './pages/FavoritesPage/FavoritesPage';
 import TrendsPage from './pages/TrendsPage/TrendsPage';
 import SearchPage from './pages/SearchPage/SearchPage';
+import ErrorPage from './pages/ErrorPage/ErrorPage';
 // import SearchInput from './components/SearchInput/SearchInput';
 // import Input from "./components/Input/Input";
 
@@ -24,6 +25,7 @@ export default function App() {
         <Route path="/favorites" element={<FavoritesPage/>}></Route>
         <Route path="/trends" element={<TrendsPage/>}></Route>
         <Route path="/search/:title" element={<SearchPage/>}></Route>
+        <Route path="/*" element={<ErrorPage/>}></Route>
       </Routes>
     </ThemeContext>
     </BrowserRouter>

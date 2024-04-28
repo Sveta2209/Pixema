@@ -49,14 +49,14 @@
 
 .signup-box-dark-theme {
     width: 580px;
-    height: 750px;
+    height: auto;
     background-color: #242426;
     border-radius: 10px;
 }
 
 .signup-box-light-theme {
     width: 580px;
-    height: 750px;
+    height: auto;
     background-color: white;
     border-radius: 10px;
 }

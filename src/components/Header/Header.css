@@ -144,6 +144,158 @@
     height: 30px;
 }
 
+.user-container {
+    width: 264px;
+    height: 56px;
+    display: flex;
+    margin-left: 30px;
+    position: relative;
+}
+
+.color-box {
+    width: 56px;
+    height: 56px;
+    border-radius: 10px;
+    background-color: #7B61FF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.user-details-box-dark-theme {
+    width: 180px;
+    height: 100%;
+    background-color: black;
+}
+
+.user-details-box-light-theme {
+    width: 180px;
+    height: 100%;
+    background-color: white;
+}
+
+.user-details-dark-theme {
+    font-family: "Exo 2";
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    color: white;
+    padding-left: 15px;
+}
+
+.user-details-light-theme {
+    font-family: "Exo 2";
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    color: #242426;
+    padding-left: 15px;
+}
+
+.navigate-box-dark-theme {
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navigate-box-light-theme {
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.user-menu-light-theme {
+    width: 260px;
+    height: 112px;
+    background-color: white;
+    border-radius: 10px;
+    position: absolute;
+    top: 70px;
+    box-shadow: 10px 10px 10px 1px rgba(0, 0, 0, 0.3);
+    z-index: 100;
+}
+
+.user-menu-dark-theme {
+    width: 260px;
+    height: 112px;
+    background-color: #242426;
+    border-radius: 10px;
+    position: absolute;
+    top: 70px;
+    z-index: 100;
+}
+
+.user-menu-pointOne-light-theme {
+    width: 100%;
+    height: 50%;
+    color: #242426;
+    font-family: "Exo 2";
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 52px;
+    border-bottom: 1px solid #AFB2B6;
+    padding-left: 30px;
+    box-sizing: border-box;
+}
+
+.user-menu-pointOne-dark-theme {
+    width: 100%;
+    height: 50%;
+    color: white;
+    font-family: "Exo 2";
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 52px;
+    border-bottom: 1px solid #80858B;
+    padding-left: 30px;
+    box-sizing: border-box;
+}
+
+.user-menu-pointTwo {
+    width: 100%;
+    height: 50%;
+    color: #7B61FF;
+    font-family: "Exo 2";
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 52px;
+    padding-left: 30px;
+    box-sizing: border-box;
+}
+
+.user-menu-pointTwo:hover{
+    cursor: pointer;
+}
+
+.display-none {
+    display: none;
+}
+
+@media screen and (max-width: 750px) {
+    .user-details-box-dark-theme{
+        display: none;
+    }
+    .user-details-box-light-theme{
+        display: none;
+    }
+    .navigate-box-dark-theme{
+        margin-left: 5px;
+    }
+    .navigate-box-light-theme{
+        margin-left: 5px;
+    }
+    .user-menu-dark-theme {
+        right: 40px;
+        width: 200px;
+    }
+    .user-menu-light-theme {
+        right: 40px;
+        width: 200px;
+    }
+}
+
 @media screen and (max-width: 580px) {
     .header-light-theme{
         height: auto;
@@ -153,6 +305,18 @@
     }
     .header-container{
         flex-wrap: wrap;
+    }
+    .user-container{
+        width: 85px;
+        padding-top: 25px;
+    }
+    .user-menu-dark-theme{
+        right: 30px;
+        top: 95px;
+    }
+    .user-menu-light-theme{
+        right: 30px;
+        top: 95px;
     }
 }
 
@@ -173,5 +337,14 @@
     }
     .additional-menu-light-theme{
         width: 200px;
+    }
+    .user-container{
+        margin-left: 5px;
+    }
+    .user-menu-dark-theme{
+        width: 150px;
+    }
+    .user-menu-light-theme{
+        width: 150px;
     }
 }
