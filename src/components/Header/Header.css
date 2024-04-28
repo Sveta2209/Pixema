@@ -164,13 +164,13 @@
 
 .user-details-box-dark-theme {
     width: 180px;
-    height: 100%;
+    height: auto;
     background-color: black;
 }
 
 .user-details-box-light-theme {
     width: 180px;
-    height: 100%;
+    height: auto;
     background-color: white;
 }
 

@@ -75,8 +75,6 @@ const userSlice = createSlice({
             state.name = payload.name;
             state.email = payload.email;
             state.isAuth = true;
-            console.log(state.name);
-            console.log(state.email);
         }),
         builder.addCase(fetchSignUpUser.rejected, isError),
         builder.addCase(fetchSignInUser.pending, (state) => {
@@ -95,10 +93,10 @@ const userSlice = createSlice({
             state.error = null;
         }),
         builder.addCase(fetchLogout.fulfilled, (state) => {
+            state.status = "resolved";
             state.isAuth = false;
             state.email = null;
             state.name = null;
-            state.status = "resolved";
         }),
         builder.addCase(fetchLogout.rejected, isError)
     }

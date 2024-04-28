@@ -1,5 +1,5 @@
 import './SignUp.css';
-import {useContext, useState} from "react";
+import {useContext, useState, useEffect} from "react";
 import {myContext} from "../../providers/ThemeContext";
 import LogoDark from "../../assets/Pixema-dark.png";
 import Title from '../../components/Title/Title';
@@ -20,7 +20,7 @@ export default function SignUpPage() {
 
     const navigate = useNavigate();
     const dispatch = useDispatch <any>();
-    const user = useSelector((state: any) => state.user);
+    const newUser = useSelector((state: any) => state.user);
 
     function authUser():AuthForUser {
         return {
@@ -34,13 +34,15 @@ export default function SignUpPage() {
         dispatch(fetchSignUpUser(authUser())
     )}
 
-    if (user.status === "resolved") {
-        navigate("/")
-    } else if (user.status === "rejected"){
-        navigate("/*")
-    }
+    useEffect(() => {
+        if (newUser.status === "resolved") {
+            navigate("/");
+        } else if (newUser.status === "rejected"){
+            navigate("/*")
+        }
+    }, [newUser.status]);
 
-    console.log(user);
+    console.log(newUser);
 
         return (
         <div className="page-container">
@@ -50,8 +52,8 @@ export default function SignUpPage() {
             <div className="page-content">
                 <div className={`signup-box-${colorTheme}`}>
                     <Title titleText="Sign Up"></Title>
-                    {user.status === "loading" ? <Spinner></Spinner> : null}
-                    {user.status === null ? <>
+                    {newUser.status === "loading" ? <Spinner></Spinner> : null}
+                    {newUser.status === null ? <>
                     <div className="content-container">
                         <Input setInputValue={e => setInputName(e.target.value)} inputValue={inputName} content="Name" helpText="Your name" labelId="userNameSignUp" labelText="Name" isDisabled={false}></Input>
                         <Input setInputValue={e => setEmailName(e.target.value)} inputValue={emailName} content="Email" helpText="Your email" labelId="userEmailSignIn" labelText="Email" isDisabled={false}></Input>

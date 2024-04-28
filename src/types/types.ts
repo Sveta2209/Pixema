@@ -73,6 +73,5 @@ export interface TrendState {
 export interface AuthForUser {
     email: string;
     password: string;
-    confirmPassword?: string;
     name?: string;
 }
