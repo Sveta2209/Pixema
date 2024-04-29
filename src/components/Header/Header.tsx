@@ -52,7 +52,9 @@ export default function Header({userName}: {userName?:string}) {
     }, [debaunceSearch]);
 
     const logOut = () => {
-        dispatch(fetchLogout());
+        dispatch(fetchLogout()).then(() => {
+            navigate("/");
+        })
     };
 
     return (
@@ -68,10 +70,10 @@ export default function Header({userName}: {userName?:string}) {
                     <img src={Trend} alt="Trend-icon" className="additional-menu-point-icon"></img>
                     <div className="additional-menu-point-name">Trends</div>
                 </div></Link>
-                <Link to="/favorites" className="link-decoration additional-menu-point"><div className={`additional-menu-point-favorite-${colorTheme}`}>
+                {isAuth ? <><Link to="/favorites" className="link-decoration additional-menu-point"><div className={`additional-menu-point-favorite-${colorTheme}`}>
                     <img src={Favorite} alt="Favorite-icon" className="additional-menu-point-icon"></img>
                     <div className="additional-menu-point-name">Favorites</div>
-                </div></Link>
+                </div></Link></> : null}
                 <div className={`additional-menu-point-${colorTheme}`}>
                     <img src={Settings} alt="Favorite-icon" className="additional-menu-point-icon"></img>
                     <div className="additional-menu-point-name">Settings</div>
@@ -91,31 +93,24 @@ export default function Header({userName}: {userName?:string}) {
             </div>
             <Link to="/" className="link-decoration"><img src={colorTheme === "dark-theme" ? LogoDark : LogoLight} alt="Logo" className="header-logo"></img></Link>
             <SearchInput content="Text" helpText="Search" isDisabled={false} inputValue={search} setInputValue={handleSearchValue} searchOnSubmit={handleSearch} searchId="search"></SearchInput>
-            {isAuth ? <><div className="user-container">
+            <div className="user-container">
                 <div className="color-box">
                     <img src={User} alt="User-icon" className="user-icon"></img>
                 </div>
                 <div className={`user-details-box-${colorTheme}`}>
-                    <p className={`user-details-${colorTheme}`}>{name}</p>
+                    {isAuth ? <p className={`user-details-${colorTheme}`}>{name}</p> : <Link to="/sign-in" className="link-decoration"><p className={`user-details-${colorTheme}`}>Sign In</p></Link>}
                 </div>
-                <div className={`navigate-box-${colorTheme}`} onClick={() => {setIsVisible(!isVisible)}}>
+                {isAuth ? <><div className={`navigate-box-${colorTheme}`} onClick={() => {setIsVisible(!isVisible)}}>
                     <img src={isVisible ? ArrowRight : ArrowDown} alt="arrow-down" className="arrow-icon"></img>
-                </div>
-                <div className={isVisible ? `user-menu-${colorTheme}` : "display-none"}>
-                    <div className={`user-menu-pointOne-${colorTheme}`}>Edit Profile</div>
-                    <div className="user-menu-pointTwo" onClick={logOut}>Log Out</div>
-                </div>
-            </div></> : <><div className="user-container">
-            <div className="color-box">
-                <img src={User} alt="User-icon" className="user-icon"></img>
+                    </div>
+                    <div className={isVisible ? `user-menu-${colorTheme}` : "display-none"}>
+                        <div className={`user-menu-pointOne-${colorTheme}`}>Edit Profile</div>
+                        <div className="user-menu-pointTwo" onClick={logOut}>Log Out</div>
+                    </div></> :<><div className={`navigate-box-${colorTheme}`}>
+                        <img src={ArrowRight} alt="arrow-right" className="arrow-icon"></img>
+                    </div>
+                </>}
             </div>
-            <Link to="/sign-in" className="link-decoration"><div className={`user-details-box-${colorTheme}`}>
-                <p className={`user-details-${colorTheme}`}>Sign In</p>
-            </div></Link>
-            <div className={`navigate-box-${colorTheme}`}>
-                <img src={ArrowRight} alt="arrow-right" className="arrow-icon"></img>
-            </div>
-        </div></>}
         </div>
     </header>
     );

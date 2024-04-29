@@ -5,6 +5,7 @@ import Header from '../../components/Header/Header';
 import MoviesList from '../../components/MoviesList/MoviesList';
 import Footer from '../../components/Footer/Footer';
 
+
 export default function MainPage() {
 
     const [colorTheme] = useContext(myContext);

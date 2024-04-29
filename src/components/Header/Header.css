@@ -36,7 +36,7 @@
 
 .additional-menu-dark-theme {
     width: 242px;
-    height: 336px;
+    height: auto;
     display: flex;
     flex-direction: column;
     background-color: #242426;
@@ -48,7 +48,7 @@
 
 .additional-menu-light-theme {
     width: 242px;
-    height: 336px;
+    height: auto;
     display: flex;
     flex-direction: column;
     background-color: white;

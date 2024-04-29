@@ -29,8 +29,8 @@ export default function SignInPage() {
     }
 
     function sendDataUser() {
-        dispatch(fetchSignInUser(authUser())
-    )};
+        dispatch(fetchSignInUser(authUser()))
+    };
 
     useEffect(() => {
         if (user.status === "resolved") {
@@ -38,7 +38,7 @@ export default function SignInPage() {
         } else if (user.status === "rejected"){
             navigate("/*")
         }
-    }, [user.status]);
+    }, [user]);
 
         return (
         <div className="page-container">
@@ -53,7 +53,7 @@ export default function SignInPage() {
                     <div className="content-container">
                         <Input setInputValue={e => setEmailName(e.target.value)} inputValue={emailName} content="Email" helpText="Your email" labelId="userEmailSignIn" labelText="Email" isDisabled={false}></Input>
                         <Input setInputValue={e => setInputPassword(e.target.value)} inputValue={inputPassword} content="Password" helpText="Your password" labelId="userPasswordSignIn" labelText="Password" isDisabled={false}></Input>
-                        <p className="question-forgotPassword">Forgot password?</p>
+                        <Link to="/reset-password" className="link-decoration"><p className="question-forgotPassword">Forgot password?</p></Link>
                         <Button clickFunction={sendDataUser} typeButton="myButton primary large" isDisabled={false}>Sign In</Button>
                         <p className="question">Don’t have an account? <Link to="/sign-up" className="link-decoration"><span className="question-blue">Sign Up</span></Link></p>
                     </div>
