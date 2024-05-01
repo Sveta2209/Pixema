@@ -10,7 +10,7 @@ export default function SearchInput({content, helpText, isDisabled, inputValue, 
 
         return (
         <form className="search-form-container" onSubmit={searchOnSubmit}>
-        <input value = {inputValue} onChange={setInputValue} type={content} className={`search-input-${colorTheme}`} placeholder={helpText} disabled = {isDisabled} id={searchId}></input>
+        <input data-test="cypress-searchInput" value = {inputValue} onChange={setInputValue} type={content} className={`search-input-${colorTheme}`} placeholder={helpText} disabled = {isDisabled} id={searchId}></input>
         <img src={colorTheme === "dark-theme" ? Search : SearchLignt} alt="Search" className="search-icon"></img>
         </form>
     );

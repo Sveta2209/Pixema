@@ -37,7 +37,7 @@ export default function SearchPage() {
                 {searchFilm.status === "loading" ? <Spinner></Spinner> : null}
                 <div className="page-layout">
                 {searchFilm.length === 0 ? null : searchFilm.map((film:Movie) => (
-                    <div className="key-container" key={film.imdbID}>
+                    <div className="key-container" key={film.imdbID} data-test="cypress-searchContainer">
                     <Link className="link-decoration card-container" to={`/movie/${film.imdbID}`}>
                         <Card key={film.imdbID} source={film.Poster === "N/A" || film.Poster === "" ? `${NoPhoto}` : film.Poster} cardTitle={film.Title} cardYear={film.Year} imdbID={film.imdbID} ></Card> </Link> 
                     </div>))}
