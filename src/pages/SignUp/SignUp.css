@@ -81,3 +81,60 @@
 .question-blue {
     color: #7B61FF;
 }
+
+@media screen and (max-width: 630px) {
+    .signup-box-light-theme{
+        width: 520px;
+    }
+    .signup-box-dark-theme {
+        width: 520px;
+    }
+}
+
+@media screen and (max-width: 560px) {
+    .signup-box-light-theme{
+        width: 450px;
+    }
+    .signup-box-dark-theme {
+        width: 450px;
+    }
+}
+
+@media screen and (max-width: 490px) {
+    .signup-box-light-theme{
+        width: 380px;
+    }
+    .signup-box-dark-theme {
+        width: 380px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .signup-box-light-theme{
+        width: 320px;
+    }
+    .signup-box-dark-theme {
+        width: 320px;
+    }
+}
+
+@media screen and (max-width: 340px) {
+    .signup-box-light-theme{
+        width: 250px;
+    }
+    .signup-box-dark-theme {
+        width: 250px;
+    }
+    .question {
+        width: 180px;
+    }
+}
+
+@media screen and (max-width: 270px) {
+    .signup-box-light-theme{
+        width: 215px;
+    }
+    .signup-box-dark-theme {
+        width: 215px;
+    }
+}

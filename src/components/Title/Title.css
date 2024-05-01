@@ -23,3 +23,12 @@
     margin-top: 40px;
     margin-bottom: 40px;
 }
+
+@media screen and (max-width: 270px) {
+    .mainTitle-light-theme {
+        font-size: 22px;
+    }
+    .mainTitle-light-theme {
+        font-size: 22px;
+    }
+}

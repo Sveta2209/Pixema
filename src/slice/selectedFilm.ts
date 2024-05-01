@@ -1,4 +1,4 @@
-import { createSlice, current, createAsyncThunk } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { FilmState, MovieDetails} from "../types/types";
 
 const movieKey = "113df6aa";
@@ -38,9 +38,7 @@ const filmSlice = createSlice({
         builder.addCase(fetchOneMovie.fulfilled, (state: any, {payload}: {payload: any}) => {
             state.status = "resolved";
             state.error = null;
-            console.log (payload)
             state.selectedFilm = payload;
-            console.log (state.selectedFilm)
         }),
         builder.addCase(fetchOneMovie.rejected, isError)
     }

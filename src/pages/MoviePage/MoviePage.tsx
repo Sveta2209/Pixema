@@ -16,13 +16,13 @@ import { Movie } from "../../types/types";
 import {addToFavorites, removeFavorites} from "../../slice/favorite";
 
 
-
 export default function MoviePage() {
 
     const [colorTheme] = useContext(myContext);
     const {imdbID} = useParams();
     const dispatch = useDispatch <any>();
     const movie = useSelector ((state:any) => state.film);
+    const {isAuth} = useSelector((state: any) => state.user);
 
     useEffect(() => {
         if (typeof imdbID === "string"){
@@ -41,6 +41,7 @@ export default function MoviePage() {
     const [isVisibleAnswerAdd, setIsVisibleAnswerAdd] = useState(false);
     const [isVisibleAnswerDel, setIsVisibleAnswerDel] = useState(false);
 
+
         return (
         <>
             <Header></Header>
@@ -50,7 +51,7 @@ export default function MoviePage() {
                 {movie.selectedFilm !== null ?
                     <><div className="card-box">
                         <img src={movie.selectedFilm.Poster === "N/A" || movie.selectedFilm.Poster === "" ? `${NoPhoto}` : movie.selectedFilm.Poster} alt="Poster" className="one-movie-poster"></img>
-                        <div className="button-container">
+                        {isAuth ? <div className="button-container">
                             <Button  isDisabled={false} typeButton="myButton secondary favorite" clickFunction={() => {addFavorite(movie.selectedFilm); setIsVisibleAnswerAdd(!isVisibleAnswerAdd)}}></Button>
                             <img src={Favorite} alt="Favorite-icon" className="favorite-icon"></img>
                             <div className={isVisibleAnswerAdd ? "display" : "display-none"}>
@@ -63,7 +64,7 @@ export default function MoviePage() {
                                 <p className="message">You delete this film from favorites!</p>
                                 <p className={isVisibleAnswerDel ? "cancel-point" : "display-none"} onClick={() => setIsVisibleAnswerDel(!isVisibleAnswerDel)}>X</p>
                             </div>
-                        </div>
+                        </div> : null}
                     </div>
                     <div className="details-box">
                         <p className="card-genre">{movie.selectedFilm.Genre}</p>

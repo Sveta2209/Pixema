@@ -16,12 +16,12 @@ import Sun from "../../assets/Sun.png";
 import { useNavigate, generatePath, Link } from "react-router-dom";
 import { useDebounce } from "../../useDebounce";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchSignUpUser, fetchLogout } from "../../slice/user";
+import { fetchLogout } from "../../slice/user";
 import ArrowDown from "../../assets/Arrow Down.png";
 import ArrowRight from "../../assets/Arrow Right.png";
 import User from "../../assets/User.png";
 
-export default function Header({userName}: {userName?:string}) {
+export default function Header() {
 
     const [isVisibleMenu, setIsVisibleMenu] = useState(false);
     const [isVisible, setIsVisible] = useState(false);
@@ -78,10 +78,6 @@ export default function Header({userName}: {userName?:string}) {
                     <img src={Settings} alt="Favorite-icon" className="additional-menu-point-icon"></img>
                     <div className="additional-menu-point-name">Settings</div>
                 </div>
-                <div className={`additional-menu-point-${colorTheme}`}>
-                    <img src={Filter} alt="Filter-icon" className="additional-menu-point-icon"></img>
-                    <div className="additional-menu-point-name">Filters</div>
-                </div>
                 <div className="additional-menu-point-theme">
                     <div className="additional-menu-point-theme-box" onClick={changeColorDark}>
                         <img src={Moon} alt="darktheme-icon" className="theme-icon moon"></img>
@@ -106,8 +102,12 @@ export default function Header({userName}: {userName?:string}) {
                     <div className={isVisible ? `user-menu-${colorTheme}` : "display-none"}>
                         <div className={`user-menu-pointOne-${colorTheme}`}>Edit Profile</div>
                         <div className="user-menu-pointTwo" onClick={logOut}>Log Out</div>
-                    </div></> :<><div className={`navigate-box-${colorTheme}`}>
-                        <img src={ArrowRight} alt="arrow-right" className="arrow-icon"></img>
+                    </div></> :<><div className={`navigate-box-${colorTheme}`} onClick={() => {setIsVisible(!isVisible)}}>
+                        <img src={isVisible ? ArrowDown : ArrowRight} alt="arrow-right" className="arrow-icon"></img>
+                    </div>
+                    <div className={isVisible ? `user-menu-${colorTheme}` : "display-none"}>
+                        <Link to="/sign-in" className="link-decoration"><div className={`user-menu-pointOne-${colorTheme}`}>Sign In</div></Link>
+                        <Link to="/sign-up" className="link-decoration"><div className="user-menu-pointTwo">Sign Up</div></Link>
                     </div>
                 </>}
             </div>

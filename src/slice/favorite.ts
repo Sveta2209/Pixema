@@ -24,9 +24,7 @@ const favoritesSlice = createSlice({
                 throw new Error ("You cannot add this film to wishlists anymore.");
             } else {
                 state.favorites.push(action.payload);
-                console.log(action.payload)
                 localStorage.setItem("favorites", JSON.stringify(state.favorites));
-                console.log(state.favorites)
             }
         },
         removeFavorites: (state, action) => {

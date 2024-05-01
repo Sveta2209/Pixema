@@ -14,7 +14,7 @@ export default function ResetPasswordConfirm() {
         return (
         <div className="page-container">
             <div className="page-header">
-            <Link to="/" className="link-decoration"><img src={LogoDark} alt="Logo" className="header-logo"></img></Link>
+            <Link to="/" className="link-decoration"><img src={LogoDark} alt="Logo" className="header-logo-reset"></img></Link>
             </div>
             <div className="page-content">
                 <div className={`reset-confirm-box-${colorTheme}`}>

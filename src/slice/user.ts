@@ -1,4 +1,4 @@
-import { createSlice, current, createAsyncThunk } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import {createUserWithEmailAndPassword, signInWithEmailAndPassword,updateProfile,} from "firebase/auth";
 import { AuthForUser} from "../types/types";
 import { auth } from "../firebase";
@@ -93,7 +93,7 @@ const userSlice = createSlice({
             state.error = null;
         }),
         builder.addCase(fetchLogout.fulfilled, (state) => {
-            state.status = "resolved";
+            state.status = null;
             state.isAuth = false;
             state.email = null;
             state.name = null;

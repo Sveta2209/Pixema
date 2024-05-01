@@ -49,7 +49,6 @@ const searchSlice = createSlice({
             state.status = "resolved";
             state.error = null;
             state.search = payload.Search;
-            console.log(state.search)
         }),
         builder.addCase(fetchSearch.rejected, isError)
     }

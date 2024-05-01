@@ -39,7 +39,6 @@ const trendsSlice = createSlice({
             state.status = "resolved";
             state.error = null;
             state.trends = payload.Search;
-            console.log(payload.Search)
         }),
         builder.addCase(fetchTrends.rejected, isError)
     }

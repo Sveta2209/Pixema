@@ -26,13 +26,22 @@ export default function MoviesList() {
         "dark",
         "boy",
         "house",
-        "life"
+        "life", 
+        "sun",
+        "sea",
+        "woman",
+        "people",
+        "green",
+        "fast",
+        "trip",
+        "game",
+        "witch"
     ];
     const filmTitle = moviesWords[Math.floor(Math.random() * moviesWords.length)];
 
     useEffect(() => {
         dispatch(fetchMovies({ filmTitle, page }))
-    },[dispatch, page])
+    },[page])
 
     return (
         <>
