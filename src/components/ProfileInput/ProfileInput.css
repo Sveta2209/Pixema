@@ -1,7 +1,7 @@
-.form-container {
+.form-profile-container {
     display: flex;
     flex-direction: column;
-    width: 438px;
+    width: 45%;
     height: 88px;
     margin: 0 auto;
     margin-bottom: 20px;
@@ -103,32 +103,10 @@
     display: none;
 }
 
-@media screen and (max-width: 560px) {
-    .form-container{
-        width: 340px;
+@media screen and (max-width: 800px) {
+    .form-profile-container{
+        width: 90%;
+        align-self: center;
     }
 }
 
-@media screen and (max-width: 490px) {
-    .form-container{
-        width: 290px;
-    }
-}
-
-@media screen and (max-width: 400px) {
-    .form-container{
-        width: 242px;
-    }
-}
-
-@media screen and (max-width: 340px) {
-    .form-container{
-        width: 189px;
-    }
-}
-
-@media screen and (max-width: 270px) {
-    .form-container{
-        width: 164px;
-    }
-}

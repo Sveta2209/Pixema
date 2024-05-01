@@ -273,6 +273,13 @@
     display: none;
 }
 
+.initials {
+    font-family: "Exo 2";
+    font-weight: 600;
+    font-size: 22px;
+    color: white;
+}
+
 @media screen and (max-width: 750px) {
     .user-details-box-dark-theme{
         display: none;

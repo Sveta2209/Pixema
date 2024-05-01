@@ -10,7 +10,6 @@ import Home from "../../assets/Home.png";
 import Trend from "../../assets/Trend.png";
 import Favorite from "../../assets/Favorite.png";
 import Settings from "../../assets/Settings.png";
-import Filter from "../../assets/Filter.png";
 import Moon from "../../assets/Moon.png";
 import Sun from "../../assets/Sun.png";
 import { useNavigate, generatePath, Link } from "react-router-dom";
@@ -74,10 +73,10 @@ export default function Header() {
                     <img src={Favorite} alt="Favorite-icon" className="additional-menu-point-icon"></img>
                     <div className="additional-menu-point-name">Favorites</div>
                 </div></Link></> : null}
-                <div className={`additional-menu-point-${colorTheme}`}>
+                <Link to="/settings" className="link-decoration additional-menu-point"><div className={`additional-menu-point-${colorTheme}`}>
                     <img src={Settings} alt="Favorite-icon" className="additional-menu-point-icon"></img>
                     <div className="additional-menu-point-name">Settings</div>
-                </div>
+                </div></Link>
                 <div className="additional-menu-point-theme">
                     <div className="additional-menu-point-theme-box" onClick={changeColorDark}>
                         <img src={Moon} alt="darktheme-icon" className="theme-icon moon"></img>
@@ -91,7 +90,7 @@ export default function Header() {
             <SearchInput content="Text" helpText="Search" isDisabled={false} inputValue={search} setInputValue={handleSearchValue} searchOnSubmit={handleSearch} searchId="search"></SearchInput>
             <div className="user-container">
                 <div className="color-box">
-                    <img src={User} alt="User-icon" className="user-icon"></img>
+                    {name!==null ? <p className="initials">{name.charAt(0)}</p> : <img src={User} alt="User-icon" className="user-icon"></img>}
                 </div>
                 <div className={`user-details-box-${colorTheme}`}>
                     {isAuth ? <p className={`user-details-${colorTheme}`}>{name}</p> : <Link to="/sign-in" className="link-decoration"><p className={`user-details-${colorTheme}`}>Sign In</p></Link>}
@@ -100,7 +99,7 @@ export default function Header() {
                     <img src={isVisible ? ArrowRight : ArrowDown} alt="arrow-down" className="arrow-icon"></img>
                     </div>
                     <div className={isVisible ? `user-menu-${colorTheme}` : "display-none"}>
-                        <div className={`user-menu-pointOne-${colorTheme}`}>Edit Profile</div>
+                        <Link to="/settings" className="link-decoration additional-menu-point"><div className={`user-menu-pointOne-${colorTheme}`}>Profile</div></Link>
                         <div className="user-menu-pointTwo" onClick={logOut}>Log Out</div>
                     </div></> :<><div className={`navigate-box-${colorTheme}`} onClick={() => {setIsVisible(!isVisible)}}>
                         <img src={isVisible ? ArrowDown : ArrowRight} alt="arrow-right" className="arrow-icon"></img>

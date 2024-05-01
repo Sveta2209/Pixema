@@ -1,0 +1,140 @@
+.profile-container {
+    background-color: transparent;
+    width: 80%;
+    margin: 0 auto;
+    padding-top: 50px;
+}
+
+.main-profile-data-dark-theme {
+    width: 100%;
+    background-color: #242426;
+    height: 170px;
+    border-radius: 10px;
+    display: flex;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.main-profile-data-light-theme {
+    width: 100%;
+    background-color: rgb(253, 250, 250);
+    box-shadow: 0px 0px 5px 10px rgba(0, 0, 0, 0.1);
+    height: 170px;
+    border-radius: 10px;
+    display: flex;
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+
+.main-profile-theme-dark-theme {
+    width: 100%;
+    background-color: #242426;
+    height: 135px;
+    border-radius: 10px;
+    display: flex;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding-left: 20px;
+    padding-right: 20px;
+    box-sizing: border-box;
+}
+
+.main-profile-theme-light-theme {
+    width: 100%;
+    background-color: rgb(253, 250, 250);
+    box-shadow: 0px 0px 5px 10px rgba(0, 0, 0, 0.1);
+    height: 135px;
+    border-radius: 10px;
+    display: flex;
+    margin-top: 30px;
+    margin-bottom: 50px;
+    padding-left: 20px;
+    padding-right: 20px;
+    box-sizing: border-box;
+}
+
+.profile-title-light-theme {
+    width: 100%;
+    height: auto;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 36px;
+    color: #242426;
+    font-family: "Exo 2";
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+.profile-title-dark-theme {
+    width: 100%;
+    height: auto;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 36px;
+    color: white;
+    font-family: "Exo 2";
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+.theme-box {
+    width: 50%;
+}
+
+.theme-dark-theme {
+    font-family: "Exo 2";
+    font-weight: 600;
+    font-size: 18px;
+    color: white;
+}
+
+.theme-light-theme {
+    font-family: "Exo 2";
+    font-weight: 600;
+    font-size: 18px;
+    color: #242426;
+}
+
+.switch {
+    margin-top: 15px;
+}
+
+@media screen and (max-width: 1150px) {
+    .main-profile-data-dark-theme{
+        flex-wrap: wrap;
+        height: auto;
+        padding-bottom: 20px;
+    }
+    .main-profile-data-light-theme {
+        flex-wrap: wrap;
+        height: auto;
+        padding-bottom: 20px;
+    }
+}
+
+@media screen and (max-width: 440px) {
+    .theme-dark-theme{
+        font-size: 16px;
+    }
+    .theme-light-theme {
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .theme-dark-theme{
+        font-size: 14px;
+    }
+    .theme-light-theme {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 280px) {
+    .theme-dark-theme{
+        font-size: 16px;
+    }
+    .theme-light-theme {
+        font-size: 16px;
+    }
+}

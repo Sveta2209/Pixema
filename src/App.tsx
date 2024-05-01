@@ -11,6 +11,7 @@ import SearchPage from './pages/SearchPage/SearchPage';
 import ErrorPage from './pages/ErrorPage/ErrorPage';
 import ResetPasswordPage from './pages/ResetPasswordPage/ResetPasswordPage';
 import ResetPasswordConfirm from './pages/ResetPasswordConfirm/ResetPasswordConfirm';
+import ProfilePage from './pages/ProfilePage/ProfilePage';
 
 export default function App() {
   return (
@@ -23,6 +24,7 @@ export default function App() {
         <Route path="/sign-in" element={<SignInPage/>}></Route>
         <Route path="/reset-password" element={<ResetPasswordPage/>}></Route>
         <Route path="/reset" element={<ResetPasswordConfirm/>}></Route>
+        <Route path="/settings" element={<ProfilePage/>}></Route>
         <Route path="/movie/:imdbID" element={<MoviePage/>}></Route>
         <Route path="/favorites" element={<FavoritesPage/>}></Route>
         <Route path="/trends" element={<TrendsPage/>}></Route>
