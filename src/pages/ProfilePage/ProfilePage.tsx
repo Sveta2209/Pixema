@@ -7,7 +7,8 @@ import { useSelector } from "react-redux";
 import On from "../../assets/Switch - on.png";
 import Off from "../../assets/Switch - off.png";
 import ProfileInput from '../../components/ProfileInput/ProfileInput';
-
+import Button from "../../components/Button/Button";
+import { Link } from "react-router-dom";
 
 export default function ProfilePage() {
 
@@ -31,7 +32,10 @@ export default function ProfilePage() {
                     <div className={`main-profile-data-${colorTheme}`}>
                         <ProfileInput inputValue={name} content="Name" helpText="Your name" labelId="userName" labelText="Name" isDisabled={true}></ProfileInput>
                         <ProfileInput inputValue={email} content="Email" helpText="Your email" labelId="userEmail" labelText="Email" isDisabled={true}></ProfileInput>
-                    </div> </> : null}
+                    </div> 
+                    <h1 className={`profile-title-${colorTheme}`}>Password</h1>
+                        <Link to="/reset-password" className="link-decoration"><Button typeButton="myButton primary profile-button" isDisabled={false}>Change password</Button></Link>
+                    </> : null}
                     <h1 className={`profile-title-${colorTheme}`}>Color mode</h1>
                     <div className={`main-profile-theme-${colorTheme}`}>
                         <div className="theme-box">

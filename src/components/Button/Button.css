@@ -77,6 +77,10 @@
     background-color: #7B61FF;
 }
 
+.profile-button {
+    margin-top: 20px;
+}
+
 @media screen and (max-width: 270px) {
     .favorite{
         width: 100px;
